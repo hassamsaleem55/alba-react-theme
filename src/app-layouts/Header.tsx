@@ -17,7 +17,7 @@ export default function Header() {
     <header className="w-full bg-white fixed top-0 z-50">
       <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
         {/* Logo */}  
-        <div className="text-2xl font-bold cursor-pointer shrink-0">
+        <div className="text-2xl cursor-pointer shrink-0">
           <img
             src="https://api.motors-hub.co.uk/Company/Images/968ec489-8e6c-4bc1-8af0-e2130d070c45/CompanyLogo/COM-100659653731.png"
             alt="Logo"
@@ -31,7 +31,7 @@ export default function Header() {
             <a
               key={item.name}
               href={item.href}
-              className="text-gray-700 px-3 lg:px-4 py-2 lg:py-3 rounded-full hover:bg-gray-100 hover:text-blue-600 transition-all duration-200 text-sm lg:text-base font-medium"
+              className="px-3 lg:px-4 py-2 lg:py-3 rounded-full hover:bg-gray-100 hover:text-blue-600 transition-all duration-200 text-sm lg:text-base"
             >
               {item.name}
             </a>
@@ -74,14 +74,14 @@ export default function Header() {
             <a
               key={item.name}
               href={item.href}
-              className="block text-gray-700 px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 active:bg-blue-100 transition-all duration-200 font-medium touch-manipulation"
+              className="block px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 active:bg-blue-100 transition-all duration-200 touch-manipulation"
               onClick={() => setIsOpen(false)}
             >
               {item.name}
             </a>
           ))}
           <div className="pt-2 border-t border-gray-100 mt-3">
-            <button className="w-full flex items-center justify-center gap-2 text-gray-700 px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 active:bg-blue-100 transition-all duration-200 font-medium touch-manipulation">
+            <button className="w-full flex items-center justify-center gap-2 text-gray-700 px-4 py-3 rounded-xl hover:bg-blue-50 hover:text-blue-600 active:bg-blue-100 transition-all duration-200 touch-manipulation">
               <Heart className="w-5 h-5" />
               <span>Favorites</span>
             </button>

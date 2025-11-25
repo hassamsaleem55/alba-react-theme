@@ -71,12 +71,12 @@ export default function FeaturedCars({
           className="flex items-center justify-between gap-2 mb-4"
         >
           <MotionReveal preset="slideRight">
-            <h2 className="text-2xl md:text-4xl font-semibold text-gray-900">
+            <h2>
               {title}
             </h2>
           </MotionReveal>
           <MotionReveal preset="slideLeft">
-            <div className="flex items-center gap-2 text-sm md:text-base px-3 py-1 md:px-4 md:py-2 bg-white rounded-4xl hover:gap-3 hover:text-indigo-500 text-gray-700 font-medium transition-all duration-200 ease-in-out cursor-pointer">
+            <div className="flex items-center gap-2 text-sm md:text-base px-3 py-1 md:px-4 md:py-2 bg-white rounded-4xl hover:gap-3 hover:text-indigo-500 text-gray-700 transition-all duration-200 ease-in-out cursor-pointer">
               See All
               <ChevronRight className="w-4" />
             </div>

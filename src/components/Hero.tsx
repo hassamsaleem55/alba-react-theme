@@ -12,10 +12,10 @@ export default function Hero() {
         />
         <div className="absolute flex flex-col center gap-8 mt-30 md:mt-0">
           <div className="flex flex-col items-center text-center px-2">
-            <h1 className="text-white text-3xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-white text-3xl md:text-6xl">
               Find Your Dream Car
             </h1>
-            <p className="text-white text-sm md:text-xl leading-relaxed">
+            <p className="text-white text-sm md:text-xl">
               Explore our extensive collection of vehicles tailored to your
               needs.
             </p>

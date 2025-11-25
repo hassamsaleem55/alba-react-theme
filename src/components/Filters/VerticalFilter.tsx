@@ -85,11 +85,11 @@ export default function VerticalFilters() {
             `}
           >
             <div className="flex flex-col">
-              <span className="text-start font-semibold text-gray-700 text-xs md:text-sm tracking-wider truncate w-full group-hover:text-gray-900 transition-colors">
+              <span className="text-start text-gray-700 text-xs md:text-sm tracking-wider truncate w-full group-hover:text-gray-900 transition-colors">
                 {filter.label}
               </span>
               {selectedOptions[filter.id]?.length > 0 && (
-                <span className="text-[10px] text-blue-600 font-medium rounded-full mt-1">
+                <span className="text-[10px] text-blue-600 rounded-full mt-1">
                   {selectedOptions[filter.id].length} selected
                 </span>
               )}
@@ -115,7 +115,7 @@ export default function VerticalFilters() {
                     <button
                       key={option}
                       onClick={() => toggleOption(filter.id, option)}
-                      className={`px-3 md:px-2 py-2 text-xs md:text-sm font-medium rounded-2xl border transition-all duration-200 text-center touch-manipulation ${
+                      className={`px-3 md:px-2 py-2 text-xs md:text-sm rounded-2xl border transition-all duration-200 text-center touch-manipulation ${
                         isSelected
                           ? "border-blue-400 bg-linear-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md ring-2 ring-blue-200/50"
                           : "border-gray-200 hover:border-gray-300 hover:bg-white active:bg-gray-50 text-gray-700 hover:shadow-sm"
@@ -132,11 +132,11 @@ export default function VerticalFilters() {
               <div className="flex gap-2 mt-8 md:gap-2 md:ml-auto">
                 <button
                   onClick={clearFilter}
-                  className="flex-1 px-4 py-3 md:py-2 border border-gray-400 text-gray-600 rounded-2xl hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 active:bg-gray-100 transition-all duration-300 ease-out font-medium backdrop-blur-sm text-xs md:text-sm touch-manipulation"
+                  className="flex-1 px-4 py-3 md:py-2 border border-gray-400 text-gray-600 rounded-2xl hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 active:bg-gray-100 transition-all duration-300 ease-out backdrop-blur-sm text-xs md:text-sm touch-manipulation"
                 >
                   Clear Filters
                 </button>
-                <button className="flex-1 px-4 py-3 md:py-2 bg-linear-to-r from-gray-900 via-black to-gray-900 text-white rounded-2xl hover:from-gray-800 hover:to-gray-800 active:from-gray-900 active:to-gray-900 transition-all duration-300 ease-out shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 font-semibold text-xs md:text-sm touch-manipulation">
+                <button className="flex-1 px-4 py-3 md:py-2 bg-linear-to-r from-gray-900 via-black to-gray-900 text-white rounded-2xl hover:from-gray-800 hover:to-gray-800 active:from-gray-900 active:to-gray-900 transition-all duration-300 ease-out shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 text-xs md:text-sm touch-manipulation">
                   <Search className="w-4 h-4" /> Search Cars
                 </button>
               </div>

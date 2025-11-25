@@ -80,11 +80,11 @@ export default function CarCard({
         {/* Car Name & Year */}
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1">
-            <h3 className="font-bold text-base sm:text-lg text-gray-900 truncate">
+            <h3 className="text-base sm:text-lg truncate">
               {brand} {name}
             </h3>
           </div>
-          <span className="text-gray-500 font-medium text-sm sm:text-base shrink-0">
+          <span className="text-gray-500 text-sm sm:text-base shrink-0">
             {year}
           </span>
         </div>
@@ -100,11 +100,11 @@ export default function CarCard({
             </span>
           </div>
           <div className="flex items-center justify-between gap-2">
-            <span className="text-red-500 font-bold text-sm sm:text-lg truncate">
+            <span className="text-red-500 text-sm sm:text-lg truncate font-bold">
               £ {Math.round(price * 30).toLocaleString()}
               <span className="text-xs sm:text-sm">/month</span>
             </span>
-            <span className="text-gray-900 font-bold text-sm sm:text-base shrink-0">
+            <span className="text-gray-900 text-sm sm:text-base shrink-0 font-bold">
               £ {(price * 365).toLocaleString()}
             </span>
           </div>
@@ -114,7 +114,7 @@ export default function CarCard({
         <div className="pt-2 border-t border-gray-100">
           <div className="flex items-center justify-between text-xs sm:text-sm">
             <span className="text-gray-500">Odometer</span>
-            <span className="font-medium text-gray-900">
+            <span className="text-gray-900">
               {mileage?.toLocaleString() || "0"} kms
             </span>
           </div>

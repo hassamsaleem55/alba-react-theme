@@ -84,12 +84,12 @@ export default function HorizontalFilters() {
             }`}
           >
             <div className="flex flex-col items-start min-w-0 flex-1 justify-center">
-              <span className="font-semibold text-gray-700 text-sm tracking-wider whitespace-nowrap group-hover:text-gray-900 transition-colors">
+              <span className="text-gray-700 text-sm tracking-wider whitespace-nowrap group-hover:text-gray-900 transition-colors">
                 {filter.label}
               </span>
               {selectedOptions[filter.id]?.length > 0 && (
                 <div className="h-4 flex items-center">
-                  <span className="text-xs text-blue-600 font-medium whitespace-nowrap bg-blue-100/50 px-2 py-0.5 rounded-full">
+                  <span className="text-xs text-blue-600 whitespace-nowrap bg-blue-100/50 px-2 py-0.5 rounded-full">
                     {selectedOptions[filter.id].length} selected
                   </span>
                 </div>
@@ -119,7 +119,7 @@ export default function HorizontalFilters() {
                   <button
                     key={option}
                     onClick={() => toggleOption(activeFilter, option)}
-                    className={`px-4 py-3 cursor-pointer text-sm font-medium rounded-2xl border transition-all duration-200 text-left hover:shadow-lg hover:scale-105 ${
+                    className={`px-4 py-3 cursor-pointer text-sm rounded-2xl border transition-all duration-200 text-left hover:shadow-lg hover:scale-105 ${
                       isSelected
                         ? "border-blue-400/50 bg-linear-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md ring-2 ring-blue-200/50"
                         : "border-gray-200 hover:border-gray-300 hover:bg-white text-gray-700 hover:shadow-sm"
@@ -132,7 +132,7 @@ export default function HorizontalFilters() {
           </div>
           <div className="flex items-center justify-between">
             {selectedOptions[activeFilter]?.length > 0 && (
-              <div className="text-sm text-blue-700 bg-blue-50/80 border border-blue-200/50 px-4 py-2 rounded-full font-medium backdrop-blur-sm">
+              <div className="text-sm text-blue-700 bg-blue-50/80 border border-blue-200/50 px-4 py-2 rounded-full backdrop-blur-sm">
                 {selectedOptions[activeFilter].length} option
                 {selectedOptions[activeFilter].length > 1 ? "s" : ""} selected
               </div>
@@ -140,11 +140,11 @@ export default function HorizontalFilters() {
             <div className="flex justify-end items-center gap-3 ml-auto">
               <button
                 onClick={clearFilter}
-                className="px-5 py-3 cursor-pointer border border-gray-200 text-gray-600 rounded-2xl hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 transition-all duration-300 ease-out font-medium backdrop-blur-sm"
+                className="px-5 py-3 cursor-pointer border border-gray-200 text-gray-600 rounded-2xl hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 transition-all duration-300 ease-out backdrop-blur-sm"
               >
                 Clear Filter
               </button>
-              <button className="px-6 py-3 cursor-pointer bg-linear-to-r from-gray-900 via-black to-gray-900 text-white rounded-2xl hover:from-gray-800 hover:to-gray-800 hover:scale-105 transition-all duration-300 ease-out shadow-xl hover:shadow-2xl flex items-center gap-2 font-semibold">
+              <button className="px-6 py-3 cursor-pointer bg-linear-to-r from-gray-900 via-black to-gray-900 text-white rounded-2xl hover:from-gray-800 hover:to-gray-800 hover:scale-105 transition-all duration-300 ease-out shadow-xl hover:shadow-2xl flex items-center gap-2">
                 <Search className="w-4 h-4" />
                 Search Cars
               </button>
