@@ -108,7 +108,7 @@ export default function HorizontalFilters() {
 
       {/* Filter Panels */}
       {activeFilter && (
-        <div className="absolute w-full p-6 mt-2 space-y-6 rounded-3xl z-50 bg-white backdrop-blur-lg border border-white/20 shadow-2xl shadow-black/10 ring-1 ring-black/5 animate-in slide-in-from-top-2 duration-500 ease-out">
+        <div className="absolute w-full p-6 mt-2 space-y-6 rounded-3xl bg-white backdrop-blur-lg border border-white/20 shadow-2xl shadow-black/10 ring-1 ring-black/5 animate-in slide-in-from-top-2 duration-500 ease-out">
           <div className="flex flex-wrap gap-3">
             {filters
               .find((f) => f.id === activeFilter)
