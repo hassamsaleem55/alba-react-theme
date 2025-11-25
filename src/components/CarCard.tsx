@@ -80,9 +80,9 @@ export default function CarCard({
         {/* Car Name & Year */}
         <div className="flex items-start justify-between gap-2">
           <div className="min-w-0 flex-1">
-            <h3 className="text-base sm:text-lg truncate">
+            <h6 className="truncate">
               {brand} {name}
-            </h3>
+            </h6>
           </div>
           <span className="text-gray-500 text-sm sm:text-base shrink-0">
             {year}
