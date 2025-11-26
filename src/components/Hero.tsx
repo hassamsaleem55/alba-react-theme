@@ -4,7 +4,7 @@ import VerticalFilters from "./Filters/VerticalFilter";
 export default function Hero() {
   return (
     <>
-      <div className="relative flex flex-col items-center justify-center min-h-screen pt-24 md:pt-28 pb-12 md:pb-16 px-3 sm:px-6 lg:px-8 overflow-hidden">
+      <div className="relative flex flex-col items-center justify-center min-h-screen pt-24 md:pt-28 pb-12 md:pb-16 px-3 sm:px-6 lg:px-8">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0">
           <img

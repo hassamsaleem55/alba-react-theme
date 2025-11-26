@@ -73,7 +73,7 @@ export default function VerticalFilters() {
     <div className="bg-white/95 backdrop-blur-xl w-full shadow-2xl border border-white/40 rounded-3xl ring-2 ring-primary/30 p-4 sm:p-5 flex flex-col gap-3 relative overflow-visible z-40">
       <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
       {/* Vertical Filter Buttons */}
-      {filters.map((filter, filterIndex) => (
+      {filters.map((filter) => (
         <div key={filter.id} className="relative z-10">
           <button
             onClick={() => toggleFilter(filter.id)}
@@ -82,9 +82,6 @@ export default function VerticalFilters() {
                 ? "border-primary bg-white/80 shadow-xl ring-2 ring-primary/30 scale-[0.98]"
                 : "border-gray-200/60 bg-white/60 hover:bg-white/80 hover:border-primary/50 hover:shadow-lg active:scale-[0.97]"
             }`}
-            style={{
-              animationDelay: `${filterIndex * 100}ms`,
-            }}
           >
             <div className={`absolute inset-0 transition-all duration-400 ${
               activeFilter === filter.id
@@ -130,7 +127,7 @@ export default function VerticalFilters() {
               
               <div className="relative z-10 space-y-5">
                 <div className="flex flex-wrap gap-2.5 sm:gap-3">
-                  {filter.options.map((option, optionIndex) => {
+                  {filter.options.map((option) => {
                     const isSelected =
                       selectedOptions[filter.id]?.includes(option);
                     return (
@@ -142,9 +139,6 @@ export default function VerticalFilters() {
                             ? "border-primary bg-primary text-white shadow-xl ring-2 ring-primary/40 scale-105"
                             : "border-gray-200/60 bg-white/80 hover:border-primary/60 hover:text-primary hover:shadow-lg hover:scale-105 active:scale-95 text-gray-700"
                         }`}
-                        style={{
-                          animationDelay: `${optionIndex * 50}ms`,
-                        }}
                       >
                         <div className={`absolute inset-0 transition-all duration-400 ${
                           isSelected

@@ -70,14 +70,14 @@ export default function HorizontalFilters() {
   };
 
   return (
-    <div className="relative bg-white/95 backdrop-blur-xl max-w-7xl shadow-2xl border border-white/40 rounded-3xl overflow-visible ring-2 ring-primary/30 z-50">
+    <div className="bg-white backdrop-blur-xl max-w-7xl shadow-2xl border border-white/40 rounded-3xl overflow-visible ring-2 ring-primary/30 z-50">
       {/* Filter Buttons */}
       <div className="flex divide-x divide-gray-100/50 rounded-3xl overflow-hidden">
         {filters.map((filter) => (
           <button
             key={filter.id}
             onClick={() => toggleFilter(filter.id)}
-            className={`flex-1 cursor-pointer px-3 sm:px-4 xl:px-6 py-4 sm:py-5 xl:py-6 flex gap-3 sm:gap-4 xl:gap-6 items-center justify-between group transition-all duration-500 ease-out relative overflow-hidden min-h-16 sm:min-h-20 touch-manipulation ${
+            className={`flex-1 cursor-pointer px-3 sm:px-4 xl:px-6 py-4 sm:py-5 xl:py-6 flex gap-16 items-center justify-between group transition-all duration-500 ease-out relative overflow-hidden min-h-16 sm:min-h-20 touch-manipulation ${
               activeFilter === filter.id
                 ? "bg-white/80 backdrop-blur-sm shadow-lg scale-[0.98]"
                 : "hover:bg-white/60 hover:backdrop-blur-sm hover:shadow-md hover:scale-[0.99] active:scale-[0.97]"
@@ -99,7 +99,7 @@ export default function HorizontalFilters() {
               </span>
               {selectedOptions[filter.id]?.length > 0 && (
                 <div className="mt-1 flex items-center">
-                  <span className="text-xs text-white whitespace-nowrap bg-primary px-3 py-1 rounded-full font-medium shadow-lg border border-primary/30">
+                  <span className="text-xs text-primary whitespace-nowrap font-medium">
                     {selectedOptions[filter.id].length} selected
                   </span>
                 </div>
@@ -124,34 +124,31 @@ export default function HorizontalFilters() {
 
       {/* Filter Panels */}
       {activeFilter && (
-        <div className="absolute w-full p-6 xl:p-8 mt-4 space-y-6 xl:space-y-8 rounded-3xl bg-white/95 backdrop-blur-2xl border border-white/30 shadow-2xl ring-1 ring-primary/20 animate-in slide-in-from-top-4 duration-700 ease-out z-50">
+        <div className="absolute w-full p-6 mt-2 space-y-6 xl:space-y-8 rounded-3xl bg-white backdrop-blur-2xl border border-white/30 shadow-2xl ring-1 ring-primary/20 animate-in slide-in-from-top-4 duration-700 ease-out z-50">
           <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
           
           <div className="relative z-10 space-y-6">
-            <div className="flex flex-wrap gap-3 xl:gap-4">
+            <div className="flex flex-wrap gap-3">
               {filters
                 .find((f) => f.id === activeFilter)
-                ?.options.map((option, index) => {
+                ?.options.map((option) => {
                   const isSelected =
                     selectedOptions[activeFilter]?.includes(option);
                   return (
                     <button
                       key={option}
                       onClick={() => toggleOption(activeFilter, option)}
-                      className={`px-4 sm:px-5 xl:px-6 py-3 sm:py-3.5 xl:py-4 cursor-pointer text-sm sm:text-base xl:text-lg rounded-2xl border-2 transition-all duration-400 text-center font-medium relative overflow-hidden group touch-manipulation min-h-12 min-w-20 ${
+                      className={`px-4 py-2 text-sm md:text-base rounded-2xl transition-all duration-400 text-center font-medium relative overflow-hidden group touch-manipulation ${
                         isSelected
-                          ? "border-primary bg-primary text-white shadow-xl ring-2 ring-primary/40 scale-105"
-                          : "border-gray-200/60 hover:border-primary/60 bg-white/80 text-gray-700 hover:text-primary hover:shadow-lg hover:scale-105 active:scale-95"
+                          ? "shadow-xl ring-1 ring-primary/40 scale-105"
+                          : "border hover:border-primary/60 text-gray-700 hover:text-primary shadow-md hover:shadow-lg hover:scale-105 active:scale-95"
                       }`}
-                      style={{
-                        animationDelay: `${index * 50}ms`,
-                      }}
                     >
-                      <div className={`absolute inset-0 transition-all duration-400 ${
+                      {/* <div className={`absolute inset-0 transition-all duration-400 ${
                         isSelected
                           ? "bg-primary"
                           : "bg-linear-to-r from-primary/0 via-primary/5 to-primary/0 scale-x-0 group-hover:scale-x-100"
-                      }`}></div>
+                      }`}></div> */}
                       <span className="relative z-10">{option}</span>
                     </button>
                   );
@@ -159,14 +156,14 @@ export default function HorizontalFilters() {
             </div>
             
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-              {selectedOptions[activeFilter]?.length > 0 && (
+              {/* {selectedOptions[activeFilter]?.length > 0 && (
                 <div className="flex items-center gap-2">
                   <div className="text-sm xl:text-base text-white bg-linear-to-r from-primary to-primary/80 px-4 xl:px-5 py-2.5 xl:py-3 rounded-full shadow-lg font-semibold border border-primary/30">
                     {selectedOptions[activeFilter].length} option
                     {selectedOptions[activeFilter].length > 1 ? "s" : ""} selected
                   </div>
                 </div>
-              )}
+              )} */}
               
               <div className="flex items-center gap-3 xl:gap-4 ml-auto">
                 <button
