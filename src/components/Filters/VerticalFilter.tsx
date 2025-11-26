@@ -70,7 +70,7 @@ export default function VerticalFilters() {
   };
 
   return (
-    <div className="bg-white/90 backdrop-blur-xl w-full shadow-2xl border border-white/30 rounded-3xl ring-1 ring-primary/20 p-4 sm:p-5 flex flex-col gap-3 relative overflow-hidden">
+    <div className="bg-white/95 backdrop-blur-xl w-full shadow-2xl border border-white/40 rounded-3xl ring-2 ring-primary/30 p-4 sm:p-5 flex flex-col gap-3 relative overflow-visible z-40">
       <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
       {/* Vertical Filter Buttons */}
       {filters.map((filter, filterIndex) => (
@@ -125,7 +125,7 @@ export default function VerticalFilters() {
 
           {/* Dropdown Panel (Opens Below Each Filter) */}
           {activeFilter === filter.id && (
-            <div className="absolute left-4 right-4 z-50 mt-3 p-5 sm:p-6 bg-white/95 backdrop-blur-2xl border border-white/30 shadow-2xl ring-1 ring-primary/20 rounded-3xl animate-in slide-in-from-top-4 duration-700 ease-out">
+            <div className="absolute left-0 right-0 z-50 mt-3 p-5 sm:p-6 bg-white/98 backdrop-blur-2xl border border-white/40 shadow-2xl ring-2 ring-primary/30 rounded-3xl animate-in slide-in-from-top-4 duration-700 ease-out">
               <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
               
               <div className="relative z-10 space-y-5">

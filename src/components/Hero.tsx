@@ -64,7 +64,7 @@ export default function Hero() {
       </div>
       
       {/* Mobile Filters */}
-      <div className="lg:hidden relative -mt-6 sm:-mt-8 z-20">
+      <div className="lg:hidden relative -mt-6 sm:-mt-8 z-30 bg-gray-50/80 backdrop-blur-sm py-4">
         <div className="mx-3 sm:mx-4 md:mx-6">
           <VerticalFilters />
         </div>
