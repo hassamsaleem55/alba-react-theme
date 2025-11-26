@@ -45,13 +45,13 @@ export default function ReadySetSold() {
           </div>
         </MotionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 mb-12 lg:mb-16">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
               <MotionReveal key={step.step} preset="slideUp" delay={index * 0.2}>
                 <div className="relative">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/30 group">
+                  <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 sm:p-6 lg:p-8 text-center hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/30 group">
                     <div className="absolute -top-4 left-4 bg-white text-primary font-bold text-lg w-12 h-12 rounded-full flex items-center justify-center shadow-lg">
                       {step.step}
                     </div>

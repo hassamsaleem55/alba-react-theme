@@ -2,8 +2,6 @@
 
 @theme {
   --color-primary: oklch(63.7% 0.237 25.331);
-  --font-body: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, system-ui,
-    sans-serif;
   --font-urbanist: "Urbanist", "Urbanist Fallback";
   --font-inter: "Inter", "Inter Fallback";
 }
@@ -14,9 +12,13 @@
   #root {
     @apply overflow-x-hidden max-w-full scroll-smooth;
   }
+  
+  html {
+    @apply scroll-pt-20;
+  }
 
   body {
-    @apply m-0 p-0 text-gray-900 bg-gray-100 leading-relaxed font-body font-inter;
+    @apply m-0 p-0 text-gray-900 bg-gray-100 leading-relaxed font-inter;
   }
 
   * {
@@ -89,7 +91,7 @@
   input,
   textarea,
   select {
-    @apply text-inherit leading-6 border border-gray-300 rounded-lg p-3 bg-white text-gray-900 transition-colors duration-200;
+    @apply leading-6 border border-gray-300 rounded-lg p-3 bg-white text-gray-900 transition-colors duration-200;
   }
   input:focus,
   textarea:focus,

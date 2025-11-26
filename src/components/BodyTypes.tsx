@@ -1,5 +1,5 @@
 import MotionReveal from "./framer-motion/motion-reveal";
-import { Truck, Car, Trophy, Wind, Building, ShoppingCart } from "lucide-react";
+import { Truck, Car, Trophy, Wind, Building, ShoppingCart, Zap } from "lucide-react";
 
 export default function BodyTypes() {
   const bodyTypes = [
@@ -59,6 +59,14 @@ export default function BodyTypes() {
       bgColor: "from-teal-50 to-cyan-50",
       iconColor: "text-teal-600"
     },
+    { 
+      name: "Crossover", 
+      icon: Zap, 
+      description: "Best of both worlds", 
+      count: "72+ Cars",
+      bgColor: "from-indigo-50 to-blue-50",
+      iconColor: "text-indigo-600"
+    },
   ];
 
   return (
@@ -90,13 +98,13 @@ export default function BodyTypes() {
           </div>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
 
           {bodyTypes.map((type, index) => {
             const Icon = type.icon;
             return (
               <MotionReveal key={type.name} preset="slideUp" delay={index * 0.1}>
-                <div className={`group cursor-pointer bg-linear-to-br ${type.bgColor} rounded-2xl p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-2 border-transparent hover:border-white/50`}>
+                <div className={`group cursor-pointer bg-linear-to-br ${type.bgColor} rounded-2xl p-4 sm:p-6 text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border-2 border-transparent hover:border-white/50`}>
                   <div className={`inline-flex items-center justify-center w-16 h-16 mb-6 rounded-2xl bg-white/90 shadow-sm group-hover:shadow-lg group-hover:scale-110 transition-all duration-300 ${type.iconColor}`}>
                     <Icon className="w-8 h-8" />
                   </div>

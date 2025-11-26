@@ -85,7 +85,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white hover:text-primary transition-colors duration-200 text-base touch-manipulation"
+                    className="text-gray-300 hover:text-primary transition-colors duration-200 text-base touch-manipulation"
                   >
                     {link.name}
                   </a>
@@ -102,7 +102,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white hover:text-primary transition-colors duration-200 text-base touch-manipulation"
+                    className="text-gray-300 hover:text-primary transition-colors duration-200 text-base touch-manipulation"
                   >
                     {link.name}
                   </a>
@@ -119,7 +119,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <a
                     href={link.href}
-                    className="text-gray-300 hover:text-white hover:text-primary transition-colors duration-200 text-base touch-manipulation"
+                    className="text-gray-300 hover:text-primary transition-colors duration-200 text-base touch-manipulation"
                   >
                     {link.name}
                   </a>
@@ -161,7 +161,7 @@ export default function Footer() {
                   <a
                     key={link.name}
                     href={link.href}
-                    className="hover:text-white hover:text-primary transition-colors duration-200"
+                    className="hover:text-primary transition-colors duration-200"
                   >
                     {link.name}
                   </a>

@@ -19,7 +19,7 @@ export default function PopularBrands() {
       <div className="absolute bottom-1/3 left-10 w-24 h-24 bg-blue-500/5 rounded-full blur-xl"></div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 xl:gap-12 items-center">
           {/* Left Content - 2 columns */}
           <div className="lg:col-span-2">
             <MotionReveal preset="slideRight">

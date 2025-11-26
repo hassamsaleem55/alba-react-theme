@@ -45,7 +45,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex absolute left-1/2 -translate-x-1/2 bg-gray-50/80 backdrop-blur-sm rounded-2xl p-2 border border-gray-100/50 shadow-sm">
+        <nav className="hidden gap-3 xl:gap-4 lg:flex absolute left-1/2 -translate-x-1/2 bg-gray-50/80 backdrop-blur-sm rounded-2xl p-2 border border-gray-100/50 shadow-sm">
           {navItems.map((item) => (
             <Link
               key={item.name}

@@ -44,7 +44,7 @@ export default function WhyChooseUs() {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-12 items-start">
           {/* Left Content - 5 columns */}
           <div className="lg:col-span-5">
             <MotionReveal preset="slideRight">
@@ -89,7 +89,7 @@ export default function WhyChooseUs() {
           {/* Right Features Grid - 7 columns */}
           <div className="lg:col-span-7">
             <MotionReveal preset="slideLeft">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 {reasons.map((reason) => {
                   const Icon = reason.icon;
                   return (

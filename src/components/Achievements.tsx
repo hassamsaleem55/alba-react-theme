@@ -48,66 +48,86 @@ export default function Achievements() {
   ];
 
   return (
-    <section className="py-16 lg:py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-20 bg-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 right-20 w-48 h-48 bg-primary/5 rounded-full blur-2xl"></div>
+        <div className="absolute bottom-20 left-20 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <MotionReveal preset="fadeIn">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="mb-4">Our Achievements</h2>
-            <p className="text-lg sm:text-xl max-w-3xl mx-auto">
-              Recognition and awards that reflect our commitment to excellence and customer satisfaction
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-gray-50 border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <div className="w-2 h-2 bg-primary rounded-full"></div>
+              Awards & Recognition
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Excellence <span className="text-primary">Recognized</span>
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+              Industry recognition that validates our commitment to automotive excellence
             </p>
           </div>
         </MotionReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Achievements Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
           {achievements.map((achievement, index) => {
             const Icon = achievement.icon;
             return (
               <MotionReveal key={achievement.title} preset="slideUp" delay={index * 0.1}>
-                <div className="group bg-gray-50 hover:bg-white rounded-2xl p-6 lg:p-8 transition-all duration-300 hover:shadow-xl border-2 border-transparent hover:border-primary/20 hover:-translate-y-2">
-                  <div className="text-center">
-                    <div className={`inline-flex items-center justify-center w-16 h-16 lg:w-20 lg:h-20 rounded-2xl bg-linear-to-r ${achievement.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                      <Icon className="w-8 h-8 lg:w-10 lg:h-10" />
-                    </div>
-                    
-                    <div className="mb-2">
-                      <h5 className="group-hover:text-primary transition-colors">{achievement.title}</h5>
-                      <div className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium mt-2 group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                        {achievement.year}
-                      </div>
-                    </div>
-                    
-                    <p className="text-gray-600 leading-relaxed group-hover:text-gray-800 transition-colors">
-                      {achievement.description}
-                    </p>
+                <div className="group bg-gray-50 hover:bg-white rounded-2xl p-6 transition-all duration-300 hover:shadow-lg border border-gray-100 hover:border-primary/20 hover:-translate-y-1">
+                  <div className={`inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-linear-to-br ${achievement.color} text-white mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Icon className="w-7 h-7" />
                   </div>
+                  <div className="flex items-center gap-2 mb-2">
+                    <h5 className="font-bold text-gray-900 group-hover:text-primary transition-colors">{achievement.title}</h5>
+                    <div className="bg-primary/10 text-primary px-2 py-1 rounded-lg text-xs font-medium group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                      {achievement.year}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 text-sm leading-relaxed group-hover:text-gray-800 transition-colors">
+                    {achievement.description.substring(0, 100)}...
+                  </p>
                 </div>
               </MotionReveal>
             );
           })}
         </div>
 
-        <MotionReveal preset="fadeIn" delay={0.8}>
-          <div className="mt-16">
-            <div className="bg-linear-to-r from-primary/10 to-blue-50 rounded-2xl p-6 lg:p-8 text-center border border-primary/20">
-              <h3 className="mb-4 text-primary">Awards Drive Us Forward</h3>
-              <p className="text-lg text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                Every award and recognition we receive strengthens our commitment to providing exceptional service. 
-                These achievements are not just certificates on the wall – they represent thousands of satisfied customers 
-                and our team's dedication to automotive excellence.
-              </p>
-              <div className="mt-6 flex flex-wrap justify-center gap-4">
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                  <Trophy className="w-5 h-5 text-yellow-500" />
-                  <span className="text-sm font-medium text-gray-700">15+ Industry Awards</span>
+        {/* Quick Stats */}
+        <MotionReveal preset="fadeIn" delay={0.6}>
+          <div className="bg-gray-50 rounded-2xl p-6 lg:p-8 border border-gray-200">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-12 h-12 bg-linear-to-br from-yellow-400 to-orange-500 rounded-xl flex items-center justify-center">
+                  <Trophy className="w-6 h-6 text-white" />
                 </div>
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                  <Star className="w-5 h-5 text-yellow-500" />
-                  <span className="text-sm font-medium text-gray-700">4.9/5 Customer Rating</span>
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-gray-900">15+</div>
+                  <p className="text-sm text-gray-600">Industry Awards</p>
                 </div>
-                <div className="flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-sm">
-                  <Award className="w-5 h-5 text-blue-500" />
-                  <span className="text-sm font-medium text-gray-700">ISO 9001 Certified</span>
+              </div>
+              
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-12 h-12 bg-linear-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center">
+                  <Star className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-gray-900">4.9/5</div>
+                  <p className="text-sm text-gray-600">Customer Rating</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center justify-center gap-3">
+                <div className="w-12 h-12 bg-linear-to-br from-green-500 to-emerald-600 rounded-xl flex items-center justify-center">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <div className="text-left">
+                  <div className="text-2xl font-bold text-gray-900">ISO</div>
+                  <p className="text-sm text-gray-600">9001 Certified</p>
                 </div>
               </div>
             </div>

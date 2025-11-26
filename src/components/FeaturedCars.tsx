@@ -39,12 +39,20 @@ export default function FeaturedCars({
     // when window width is >= 320px
     320: {
       slidesPerView: 1,
+      spaceBetween: 12,
+      centeredSlides: false,
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 1.5,
       spaceBetween: 16,
+      centeredSlides: true,
     },
     // when window width is >= 640px
     640: {
       slidesPerView: 2,
       spaceBetween: 20,
+      centeredSlides: false,
     },
     // when window width is >= 768px
     768: {

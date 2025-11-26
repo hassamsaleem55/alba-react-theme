@@ -42,7 +42,7 @@ export default function CarCard({
 
   return (
     <div 
-      className="cursor-pointer bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/20 hover:border-primary/30 hover:bg-white/90 active:border-primary transition-all duration-500 group shadow-lg hover:shadow-2xl active:shadow-md touch-manipulation hover:-translate-y-1 active:translate-y-0"
+      className="cursor-pointer bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/20 hover:border-primary/30 hover:bg-white/90 active:border-primary transition-all duration-500 group shadow-lg hover:shadow-2xl active:shadow-md touch-manipulation hover:-translate-y-1 active:translate-y-0 relative"
       onClick={handleCardClick}
     >
       {/* Car Image */}
@@ -51,7 +51,7 @@ export default function CarCard({
         <img
           src={image}
           alt={`${brand} ${name}`}
-          className="w-full h-44 sm:h-52 lg:h-48 object-cover group-hover:scale-110 transition-all duration-700 ease-out"
+          className="w-full h-40 sm:h-48 lg:h-44 xl:h-48 object-cover group-hover:scale-110 transition-all duration-700 ease-out"
         />
 
         {/* Heart Button */}
@@ -77,7 +77,7 @@ export default function CarCard({
       </div>
 
       {/* Car Details */}
-      <div className="p-4 sm:p-5 lg:p-4 space-y-3 sm:space-y-4">
+      <div className="p-3 sm:p-4 lg:p-5 space-y-2.5 sm:space-y-3 lg:space-y-4">
         {/* Car Name & Year */}
         <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">

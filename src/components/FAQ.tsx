@@ -57,11 +57,11 @@ export default function FAQ() {
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-start">
           {/* Left Content - 4 columns */}
           <div className="lg:col-span-4">
             <MotionReveal preset="slideRight">
-              <div className="sticky top-8 space-y-8">
+              <div className="lg:sticky lg:top-8 space-y-6 lg:space-y-8">
                 <div>
                   <div className="inline-flex items-center gap-2 bg-white shadow-sm border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
                     <div className="w-2 h-2 bg-primary rounded-full"></div>
