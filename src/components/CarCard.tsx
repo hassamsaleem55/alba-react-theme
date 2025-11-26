@@ -42,81 +42,90 @@ export default function CarCard({
 
   return (
     <div 
-      className="cursor-pointer bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-gray-200 active:border-blue-200 transition-all duration-300 group shadow-sm hover:shadow-lg active:shadow-md touch-manipulation"
+      className="cursor-pointer bg-white/80 backdrop-blur-sm rounded-3xl overflow-hidden border border-white/20 hover:border-primary/30 hover:bg-white/90 active:border-primary transition-all duration-500 group shadow-lg hover:shadow-2xl active:shadow-md touch-manipulation hover:-translate-y-1 active:translate-y-0"
       onClick={handleCardClick}
     >
       {/* Car Image */}
-      <div className="relative overflow-hidden">
+      <div className="relative overflow-hidden rounded-t-3xl">
+        <div className="absolute inset-0 bg-linear-to-t from-black/20 via-transparent to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <img
           src={image}
           alt={`${brand} ${name}`}
-          className="w-full h-40 sm:h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-44 sm:h-52 lg:h-48 object-cover group-hover:scale-110 transition-all duration-700 ease-out"
         />
 
         {/* Heart Button */}
         <div
           onClick={handleLikeClick}
-          className={`absolute top-2 right-2 sm:top-3 sm:right-3 p-2 sm:p-2 rounded-full bg-white/80 backdrop-blur-sm hover:bg-white active:bg-gray-50 transition-all duration-200 cursor-pointer min-w-10 min-h-10 sm:min-w-0 sm:min-h-0 flex items-center justify-center touch-manipulation ${
+          className={`absolute top-3 right-3 sm:top-4 sm:right-4 p-2.5 sm:p-3 rounded-2xl bg-white/90 backdrop-blur-md hover:bg-white active:bg-white/80 transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl active:scale-95 hover:scale-105 flex items-center justify-center touch-manipulation border border-white/20 z-20 ${
             isLiked
-              ? "text-red-500"
+              ? "text-red-500 ring-2 ring-red-200"
               : "text-gray-600 hover:text-red-500"
           }`}
         >
           <Heart
             size={16}
-            className="sm:hidden"
+            className="sm:hidden transition-transform duration-300"
             fill={isLiked ? "currentColor" : "none"}
           />
           <Heart
             size={18}
-            className="hidden sm:block"
+            className="hidden sm:block transition-transform duration-300"
             fill={isLiked ? "currentColor" : "none"}
           />
         </div>
       </div>
 
       {/* Car Details */}
-      <div className="p-3 sm:p-4 space-y-2 sm:space-y-3">
+      <div className="p-4 sm:p-5 lg:p-4 space-y-3 sm:space-y-4">
         {/* Car Name & Year */}
-        <div className="flex items-start justify-between gap-2">
+        <div className="flex items-start justify-between gap-3">
           <div className="min-w-0 flex-1">
-            <h6 className="truncate">
+            <h6 className="truncate group-hover:text-primary transition-colors duration-300 text-gray-900">
               {brand} {name}
             </h6>
           </div>
-          <span className="text-gray-500 text-sm sm:text-base shrink-0">
+          <div className="shrink-0 bg-primary/10 text-primary px-2.5 py-1 rounded-full text-xs sm:text-sm font-medium">
             {year}
-          </span>
+          </div>
         </div>
 
         {/* Pricing */}
-        <div className="space-y-1">
-          <div className="flex items-center justify-between text-xs sm:text-sm">
+        <div className="space-y-2">
+          <div className="flex items-center justify-between text-xs sm:text-sm font-medium">
             <span className="text-gray-500">
-              Starts from
+              Monthly Payment
             </span>
             <span className="text-gray-500">
-              Full Price
+              Total Price
             </span>
           </div>
-          <div className="flex items-center justify-between gap-2">
-            <span className="text-red-500 text-sm sm:text-lg truncate font-bold">
-              £ {Math.round(price * 30).toLocaleString()}
-              <span className="text-xs sm:text-sm">/month</span>
-            </span>
-            <span className="text-gray-900 text-sm sm:text-base shrink-0 font-bold">
-              £ {(price * 365).toLocaleString()}
-            </span>
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex flex-col">
+              <span className="text-primary text-lg sm:text-xl font-bold">
+                £{Math.round(price * 30).toLocaleString()}
+              </span>
+              <span className="text-xs text-gray-500">/month</span>
+            </div>
+            <div className="flex flex-col items-end">
+              <span className="text-gray-900 text-base sm:text-lg font-bold">
+                £{(price * 365).toLocaleString()}
+              </span>
+              <span className="text-xs text-gray-500">full price</span>
+            </div>
           </div>
         </div>
 
         {/* Odometer */}
-        <div className="pt-2 border-t border-gray-100">
-          <div className="flex items-center justify-between text-xs sm:text-sm">
-            <span className="text-gray-500">Odometer</span>
-            <span className="text-gray-900">
-              {mileage?.toLocaleString() || "0"} kms
-            </span>
+        <div className="pt-3 border-t border-gray-100/60">
+          <div className="flex items-center justify-between">
+            <span className="text-sm text-gray-500 font-medium">Mileage</span>
+            <div className="flex items-center gap-1">
+              <span className="text-sm font-semibold text-gray-900">
+                {mileage?.toLocaleString() || "0"}
+              </span>
+              <span className="text-xs text-gray-500">miles</span>
+            </div>
           </div>
         </div>
       </div>

@@ -64,21 +64,21 @@ export default function FeaturedCars({
   };
 
   return (
-    <div className="bg-gray-100 pt-20 sm:pt-28 md:pt-16">
-      <div className="container mx-auto px-4 sm:px-6 md:px-0">
+    <div className="bg-gray-50/80 pt-16 sm:pt-20 lg:pt-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div
-          className="flex items-center justify-between gap-2 mb-4"
-        >
+        <div className="flex items-center justify-between gap-4 mb-8 sm:mb-10">
           <MotionReveal preset="slideRight">
-            <h2>
-              {title}
-            </h2>
+            <div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                {title}
+              </h2>
+            </div>
           </MotionReveal>
           <MotionReveal preset="slideLeft">
-            <div className="flex items-center gap-2 text-sm md:text-base px-3 py-1 md:px-4 md:py-2 bg-white rounded-4xl hover:gap-3 hover:text-indigo-500 text-gray-700 transition-all duration-200 ease-in-out cursor-pointer">
-              See All
-              <ChevronRight className="w-4" />
+            <div className="flex items-center gap-2 text-sm sm:text-base px-4 sm:px-5 py-2.5 sm:py-3 bg-white rounded-2xl hover:gap-3 hover:text-primary hover:bg-primary/5 text-gray-700 transition-all duration-300 ease-out cursor-pointer shadow-md hover:shadow-lg border border-gray-100 touch-manipulation min-h-11">
+              <span className="font-medium">See All</span>
+              <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </div>
           </MotionReveal>
         </div>
@@ -143,24 +143,22 @@ export default function FeaturedCars({
           {showNavigation && (
             <>
               {/* Desktop Navigation */}
-              <div className="featured-cars-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-blue-600 hover:text-white text-gray-700 w-12 h-12 rounded-full shadow-lg transition-all duration-200 items-center justify-center group hidden lg:flex cursor-pointer">
+              <div className="featured-cars-prev absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white hover:bg-primary hover:text-white text-gray-700 w-12 h-12 rounded-full shadow-lg transition-all duration-200 items-center justify-center group hidden lg:flex cursor-pointer">
                 <ChevronLeft size={20} />
               </div>
-              <div className="featured-cars-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-blue-600 hover:text-white text-gray-700 w-12 h-12 rounded-full shadow-lg transition-all duration-200 items-center justify-center group hidden lg:flex cursor-pointer">
+              <div className="featured-cars-next absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white hover:bg-primary hover:text-white text-gray-700 w-12 h-12 rounded-full shadow-lg transition-all duration-200 items-center justify-center group hidden lg:flex cursor-pointer">
                 <ChevronRight size={20} />
               </div>
 
               {/* Mobile Navigation */}
-              {/* <div className="lg:hidden flex justify-center mt-4 gap-3">
-                <button className="featured-cars-prev bg-white hover:bg-blue-600 hover:text-white text-gray-700 w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center touch-manipulation">
-                  <ChevronLeft size={18} className="sm:hidden" />
-                  <ChevronLeft size={20} className="hidden sm:block" />
+              <div className="lg:hidden flex justify-center mt-6 gap-4">
+                <button className="featured-cars-prev bg-white hover:bg-primary hover:text-white text-gray-700 w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center touch-manipulation group">
+                  <ChevronLeft size={20} className="sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
                 </button>
-                <button className="featured-cars-next bg-white hover:bg-blue-600 hover:text-white text-gray-700 w-10 h-10 sm:w-12 sm:h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center touch-manipulation">
-                  <ChevronRight size={18} className="sm:hidden" />
-                  <ChevronRight size={20} className="hidden sm:block" />
+                <button className="featured-cars-next bg-white hover:bg-primary hover:text-white text-gray-700 w-12 h-12 sm:w-14 sm:h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center touch-manipulation group">
+                  <ChevronRight size={20} className="sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
                 </button>
-              </div> */}
+              </div>
             </>
           )}
         </div>

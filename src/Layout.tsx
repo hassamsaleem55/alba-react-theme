@@ -1,13 +1,19 @@
 import { Outlet } from "react-router-dom";
 import Header from "./app-layouts/Header";
-import Footer from "./app-layouts/Footer";
+import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+import WhatsAppButton from "./components/WhatsAppButton";
 
 export default function Layout() {
   return (
-    <div className="bg-gray-100 md:h-screen overflow-x-hidden max-w-full">
+    <div className="min-h-screen flex flex-col overflow-x-hidden max-w-full">
       <Header />
-      <Outlet />
+      <main className="pt-16 md:pt-20 flex-1">
+        <Outlet />
+      </main>
       <Footer />
+      <ScrollToTop />
+      <WhatsAppButton />
     </div>
   );
 }

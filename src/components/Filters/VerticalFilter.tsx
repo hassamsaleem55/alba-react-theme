@@ -70,77 +70,107 @@ export default function VerticalFilters() {
   };
 
   return (
-    <div className="bg-white w-full shadow-2xl shadow-black/10 border border-gray-200/30 rounded-3xl ring-1 ring-black/5 p-4 flex flex-col gap-2">
+    <div className="bg-white/90 backdrop-blur-xl w-full shadow-2xl border border-white/30 rounded-3xl ring-1 ring-primary/20 p-4 sm:p-5 flex flex-col gap-3 relative overflow-hidden">
+      <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
       {/* Vertical Filter Buttons */}
-      {filters.map((filter) => (
-        <div key={filter.id}>
+      {filters.map((filter, filterIndex) => (
+        <div key={filter.id} className="relative z-10">
           <button
             onClick={() => toggleFilter(filter.id)}
-            className={`w-full px-4 py-3 border border-gray-200 flex items-center justify-between rounded-2xl transition-all duration-300 ease-out group touch-manipulation 
-              ${
+            className={`w-full px-4 sm:px-5 py-4 sm:py-5 border-2 flex items-center justify-between rounded-2xl transition-all duration-400 ease-out group touch-manipulation relative overflow-hidden min-h-16 sm:min-h-20 ${
               activeFilter === filter.id
-                ? "bg-linear-to-br from-blue-50/80 to-indigo-50/80 shadow-inner"
-                : "hover:bg-white/60 hover:shadow-sm active:bg-blue-50/30"
-            }
-            `}
+                ? "border-primary bg-white/80 shadow-xl ring-2 ring-primary/30 scale-[0.98]"
+                : "border-gray-200/60 bg-white/60 hover:bg-white/80 hover:border-primary/50 hover:shadow-lg active:scale-[0.97]"
+            }`}
+            style={{
+              animationDelay: `${filterIndex * 100}ms`,
+            }}
           >
-            <div className="flex flex-col">
-              <span className="text-start text-gray-700 text-xs md:text-sm tracking-wider truncate w-full group-hover:text-gray-900 transition-colors">
+            <div className={`absolute inset-0 transition-all duration-400 ${
+              activeFilter === filter.id
+                ? "bg-linear-to-r from-primary/10 via-primary/5 to-transparent opacity-100"
+                : "bg-linear-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100"
+            }`}></div>
+            
+            <div className="flex flex-col relative z-10 flex-1 min-w-0">
+              <span className={`text-start text-sm sm:text-base font-semibold tracking-wide truncate transition-all duration-300 ${
+                activeFilter === filter.id
+                  ? "text-primary"
+                  : "text-gray-700 group-hover:text-primary"
+              }`}>
                 {filter.label}
               </span>
               {selectedOptions[filter.id]?.length > 0 && (
-                <span className="text-[10px] text-blue-600 rounded-full mt-1">
-                  {selectedOptions[filter.id].length} selected
-                </span>
+                <div className="mt-1.5 flex items-center">
+                  <span className="text-xs text-white bg-linear-to-r from-primary to-primary/80 px-3 py-1 rounded-full font-semibold shadow-lg border border-primary/30">
+                    {selectedOptions[filter.id].length} selected
+                  </span>
+                </div>
               )}
             </div>
 
-            <div
-              className={`transition-all duration-300 ease-out p-1.5 md:p-1 rounded-full group-hover:bg-white/50 shrink-0 ${
-                activeFilter === filter.id ? "rotate-180 bg-blue-100/50" : ""
+            <div className={`relative z-10 transition-all duration-400 ease-out p-2 rounded-xl shrink-0 ${
+                activeFilter === filter.id 
+                  ? "rotate-180 bg-primary/20 shadow-inner scale-110" 
+                  : "group-hover:bg-white/80 group-hover:shadow-sm group-hover:scale-110"
               }`}
             >
-              <ChevronDown className="w-4 h-4 md:w-4 md:h-4 text-gray-400 group-hover:text-gray-600 transition-colors" />
+              <ChevronDown className={`w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 ${
+                activeFilter === filter.id
+                  ? "text-primary"
+                  : "text-gray-500 group-hover:text-primary"
+              }`} />
             </div>
           </button>
 
           {/* Dropdown Panel (Opens Below Each Filter) */}
           {activeFilter === filter.id && (
-            <div className="absolute left-4 right-4 z-50 mt-1 p-3 md:p-4 bg-white backdrop-blur-lg border border-gray-200/30 shadow-2xl shadow-black/10 ring-1 ring-black/5 rounded-2xl animate-in slide-in-from-top-2 duration-500 ease-out">
-              <div className="flex flex-wrap gap-2">
-                {filter.options.map((option) => {
-                  const isSelected =
-                    selectedOptions[filter.id]?.includes(option);
-                  return (
-                    <button
-                      key={option}
-                      onClick={() => toggleOption(filter.id, option)}
-                      className={`px-3 md:px-2 py-2 text-xs md:text-sm rounded-2xl border transition-all duration-200 text-center touch-manipulation ${
-                        isSelected
-                          ? "border-blue-400 bg-linear-to-r from-blue-50 to-indigo-50 text-blue-700 shadow-md ring-2 ring-blue-200/50"
-                          : "border-gray-200 hover:border-gray-300 hover:bg-white active:bg-gray-50 text-gray-700 hover:shadow-sm"
-                      }`}
-                    >
-                      {option}
-                    </button>
-                  );
-                })}
-              </div>
+            <div className="absolute left-4 right-4 z-50 mt-3 p-5 sm:p-6 bg-white/95 backdrop-blur-2xl border border-white/30 shadow-2xl ring-1 ring-primary/20 rounded-3xl animate-in slide-in-from-top-4 duration-700 ease-out">
+              <div className="absolute inset-0 bg-linear-to-br from-primary/5 via-transparent to-primary/5 rounded-3xl"></div>
+              
+              <div className="relative z-10 space-y-5">
+                <div className="flex flex-wrap gap-2.5 sm:gap-3">
+                  {filter.options.map((option, optionIndex) => {
+                    const isSelected =
+                      selectedOptions[filter.id]?.includes(option);
+                    return (
+                      <button
+                        key={option}
+                        onClick={() => toggleOption(filter.id, option)}
+                        className={`px-3 sm:px-4 py-3 sm:py-3.5 text-xs sm:text-sm rounded-2xl border-2 transition-all duration-400 text-center touch-manipulation font-semibold relative overflow-hidden group min-h-11 min-w-16 ${
+                          isSelected
+                            ? "border-primary bg-primary text-white shadow-xl ring-2 ring-primary/40 scale-105"
+                            : "border-gray-200/60 bg-white/80 hover:border-primary/60 hover:text-primary hover:shadow-lg hover:scale-105 active:scale-95 text-gray-700"
+                        }`}
+                        style={{
+                          animationDelay: `${optionIndex * 50}ms`,
+                        }}
+                      >
+                        <div className={`absolute inset-0 transition-all duration-400 ${
+                          isSelected
+                            ? "bg-primary"
+                            : "bg-linear-to-r from-primary/0 via-primary/10 to-primary/0 scale-x-0 group-hover:scale-x-100"
+                        }`}></div>
+                        <span className="relative z-10">{option}</span>
+                      </button>
+                    );
+                  })}
+                </div>
 
-              {/* Footer Actions */}
-              {/* <div className="flex flex-col md:flex-row md:items-center justify-between mt-6 gap-3 md:gap-0 min-h-12"> */}
-              <div className="flex gap-2 mt-8 md:gap-2 md:ml-auto">
-                <button
-                  onClick={clearFilter}
-                  className="flex-1 px-4 py-3 md:py-2 border border-gray-400 text-gray-600 rounded-2xl hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 active:bg-gray-100 transition-all duration-300 ease-out backdrop-blur-sm text-xs md:text-sm touch-manipulation"
-                >
-                  Clear Filters
-                </button>
-                <button className="flex-1 px-4 py-3 md:py-2 bg-linear-to-r from-gray-900 via-black to-gray-900 text-white rounded-2xl hover:from-gray-800 hover:to-gray-800 active:from-gray-900 active:to-gray-900 transition-all duration-300 ease-out shadow-xl hover:shadow-2xl flex items-center justify-center gap-2 text-xs md:text-sm touch-manipulation">
-                  <Search className="w-4 h-4" /> Search Cars
-                </button>
+                {/* Footer Actions */}
+                <div className="flex gap-3 pt-2">
+                  <button
+                    onClick={clearFilter}
+                    className="flex-1 px-4 sm:px-5 py-3 sm:py-3.5 border-2 border-gray-200/60 bg-white/80 text-gray-600 rounded-2xl hover:bg-white hover:border-primary/50 hover:text-primary active:scale-95 transition-all duration-300 ease-out text-sm sm:text-base touch-manipulation font-semibold backdrop-blur-sm"
+                  >
+                    Clear
+                  </button>
+                  <button className="flex-1 px-4 sm:px-5 py-3.5 sm:py-4 bg-linear-to-r from-primary to-primary/90 text-white rounded-2xl hover:shadow-2xl active:scale-95 transition-all duration-300 ease-out flex items-center justify-center gap-2 text-sm sm:text-base touch-manipulation font-semibold min-h-12">
+                    <Search className="w-4 h-4 sm:w-5 sm:h-5" />
+                    <span>Search</span>
+                  </button>
+                </div>
               </div>
-              {/* </div> */}
             </div>
           )}
         </div>

@@ -1,6 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router";
 import Layout from "./Layout";
 import Home from "./pages/Home";
+import Stock from "./pages/Stock";
+import Finance from "./pages/Finance";
+import AboutUs from "./pages/AboutUs";
+import Warranty from "./pages/Warranty";
 
 const router = createBrowserRouter([
   {
@@ -9,6 +13,22 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "/stock",
+        element: <Stock />,
+      },
+      {
+        path: "/finance",
+        element: <Finance />,
+      },
+      {
+        path: "/about-us",
+        element: <AboutUs />,
+      },
+      {
+        path: "/warranty",
+        element: <Warranty />,
       },
     ],
   },
