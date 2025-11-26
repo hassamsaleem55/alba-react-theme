@@ -1,4 +1,5 @@
 import MotionReveal from "./framer-motion/motion-reveal";
+import { Award } from "lucide-react";
 
 export default function FinancePartners() {
   const partners = [
@@ -11,53 +12,98 @@ export default function FinancePartners() {
   ];
 
   return (
-    <section className="py-16 lg:py-20 bg-white">
+    <section className="py-16 lg:py-20 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <MotionReveal preset="fadeIn">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="mb-4">Trusted Finance Partners</h2>
-            <p className="text-lg sm:text-xl max-w-3xl mx-auto">
-              We work with leading financial institutions to offer you competitive rates and flexible terms for your dream car
-            </p>
-          </div>
-        </MotionReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-          {partners.map((partner, index) => (
-            <MotionReveal key={partner.name} preset="slideUp" delay={index * 0.1}>
-              <div className="group bg-gray-50 hover:bg-white border-2 border-transparent hover:border-primary/20 rounded-2xl p-6 lg:p-8 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="w-20 h-20 lg:w-24 lg:h-24 mx-auto mb-4 bg-white rounded-xl flex items-center justify-center shadow-sm group-hover:shadow-md transition-all duration-300">
-                  <img
-                    src={partner.logo}
-                    alt={`${partner.name} logo`}
-                    className="w-12 h-12 lg:w-16 lg:h-16 object-contain"
-                  />
+        <div className="grid lg:grid-cols-3 gap-12 items-start">
+          {/* Left Content */}
+          <div className="lg:col-span-1">
+            <MotionReveal preset="slideRight">
+              <div className="sticky top-8 space-y-6">
+                <div>
+                  <h2 className="text-left mb-4">Finance Your Dream Car</h2>
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    Partner with trusted lenders to secure competitive rates and flexible payment options.
+                  </p>
                 </div>
-                <h5 className="mb-2 group-hover:text-primary transition-colors">{partner.name}</h5>
-                <div className="inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium group-hover:bg-primary group-hover:text-white transition-all duration-300">
-                  {partner.rate}
+                
+                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
+                  <h4 className="text-primary mb-4">Quick Finance Facts</h4>
+                  <div className="space-y-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Rates starting from:</span>
+                      <span className="font-semibold text-green-600">3.8% APR</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Approval time:</span>
+                      <span className="font-semibold">24 hours</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Term options:</span>
+                      <span className="font-semibold">12-84 months</span>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="space-y-3">
+                  <button className="w-full bg-primary text-white px-6 py-4 rounded-2xl hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold">
+                    Get Pre-Approved
+                  </button>
+                  <button className="w-full border-2 border-gray-200 text-gray-700 px-6 py-4 rounded-2xl hover:border-primary hover:text-primary transition-all duration-300 font-medium">
+                    Calculate Payments
+                  </button>
                 </div>
               </div>
             </MotionReveal>
-          ))}
-        </div>
-
-        <MotionReveal preset="fadeIn" delay={0.8}>
-          <div className="bg-linear-to-r from-primary/10 to-blue-50 rounded-2xl p-6 lg:p-8 text-center border border-primary/20">
-            <h3 className="mb-4 text-primary">Ready to Get Financed?</h3>
-            <p className="text-lg mb-6 max-w-2xl mx-auto">
-              Get pre-approved in minutes with our instant online application. No impact on your credit score for initial quotes.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-white px-8 py-4 rounded-xl hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium">
-                Apply for Finance
-              </button>
-              <button className="border-2 border-primary text-primary px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-all duration-300 font-medium">
-                Calculate Payments
-              </button>
-            </div>
           </div>
-        </MotionReveal>
+
+          {/* Right Partners Grid */}
+          <div className="lg:col-span-2">
+            <MotionReveal preset="slideLeft">
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-2">Our Lending Partners</h3>
+                <p className="text-gray-600">Choose from multiple competitive offers</p>
+              </div>
+            </MotionReveal>
+            
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+              {partners.map((partner, index) => (
+                <MotionReveal key={partner.name} preset="slideUp" delay={index * 0.1}>
+                  <div className="group bg-white hover:bg-gray-50 border border-gray-200 hover:border-primary/30 rounded-xl p-4 transition-all duration-300 hover:shadow-md cursor-pointer">
+                    <div className="flex flex-col items-center text-center">
+                      <div className="w-16 h-16 mb-3 bg-gray-50 rounded-lg flex items-center justify-center group-hover:bg-white transition-colors">
+                        <img
+                          src={partner.logo}
+                          alt={`${partner.name} logo`}
+                          className="w-10 h-10 object-contain"
+                        />
+                      </div>
+                      <h6 className="text-sm font-medium mb-1 group-hover:text-primary transition-colors">{partner.name}</h6>
+                      <div className="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded-full">
+                        {partner.rate}
+                      </div>
+                    </div>
+                  </div>
+                </MotionReveal>
+              ))}
+            </div>
+            
+            <MotionReveal preset="fadeIn" delay={0.6}>
+              <div className="mt-8 bg-blue-50 border border-blue-200 rounded-2xl p-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center shrink-0">
+                    <Award className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h5 className="text-blue-900 mb-2">Finance Guarantee</h5>
+                    <p className="text-blue-700 text-sm leading-relaxed">
+                      Can't get approved? We'll help you improve your credit score with our finance specialists at no extra cost.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </MotionReveal>
+          </div>
+        </div>
       </div>
     </section>
   );

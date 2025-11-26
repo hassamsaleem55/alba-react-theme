@@ -49,78 +49,105 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-16 lg:py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <MotionReveal preset="fadeIn">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg sm:text-xl max-w-3xl mx-auto">
-              Get answers to the most common questions about buying, financing, and owning a vehicle with Motors Hub
-            </p>
-          </div>
-        </MotionReveal>
-
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <MotionReveal key={index} preset="slideUp" delay={index * 0.05}>
-                <div className="bg-gray-50 hover:bg-white border-2 border-transparent hover:border-primary/20 rounded-2xl transition-all duration-300 overflow-hidden group">
-                  <button
-                    onClick={() => toggleFAQ(index)}
-                    className="w-full px-6 lg:px-8 py-6 flex items-center justify-between text-left transition-all duration-300 group-hover:bg-primary/5"
-                  >
-                    <h5 className="flex-1 pr-4 group-hover:text-primary transition-colors">
-                      {faq.question}
-                    </h5>
-                    <div className={`flex-shrink-0 p-2 rounded-full transition-all duration-300 ${
-                      activeIndex === index 
-                        ? 'bg-primary text-white rotate-180' 
-                        : 'bg-gray-200 text-gray-600 group-hover:bg-primary/20 group-hover:text-primary'
-                    }`}>
-                      {activeIndex === index ? (
-                        <ChevronUp className="w-5 h-5" />
-                      ) : (
-                        <ChevronDown className="w-5 h-5" />
-                      )}
+    <section className="py-12 sm:py-16 lg:py-20 bg-linear-to-b from-gray-50 to-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-x-32 -translate-y-32"></div>
+        <div className="absolute bottom-0 right-0 w-48 h-48 bg-blue-500/5 rounded-full blur-2xl translate-x-24 translate-y-24"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Left Content - 4 columns */}
+          <div className="lg:col-span-4">
+            <MotionReveal preset="slideRight">
+              <div className="sticky top-8 space-y-8">
+                <div>
+                  <div className="inline-flex items-center gap-2 bg-white shadow-sm border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                    Help Center
+                  </div>
+                  <h2 className="text-left text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
+                    Got <span className="text-primary">Questions?</span>
+                  </h2>
+                  <p className="text-lg text-gray-600 leading-relaxed mb-8">
+                    Find answers to the most common questions about buying, financing, and owning a vehicle with Motors Hub.
+                  </p>
+                </div>
+                
+                {/* Quick Stats */}
+                <div className="space-y-4">
+                  <div className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                      <span className="text-primary font-bold text-lg">24/7</span>
                     </div>
-                  </button>
+                    <div>
+                      <h5 className="font-semibold text-gray-900">Support Available</h5>
+                      <p className="text-sm text-gray-600">Round the clock assistance</p>
+                    </div>
+                  </div>
                   
-                  <div className={`transition-all duration-500 ease-in-out ${
-                    activeIndex === index 
-                      ? 'max-h-96 opacity-100' 
-                      : 'max-h-0 opacity-0'
-                  } overflow-hidden`}>
-                    <div className="px-6 lg:px-8 pb-6 border-t border-gray-200">
-                      <p className="text-gray-700 leading-relaxed pt-6">
-                        {faq.answer}
-                      </p>
+                  <div className="flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100">
+                    <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                      <span className="text-green-600 font-bold text-lg">98%</span>
+                    </div>
+                    <div>
+                      <h5 className="font-semibold text-gray-900">Issue Resolution</h5>
+                      <p className="text-sm text-gray-600">First contact resolution rate</p>
                     </div>
                   </div>
                 </div>
-              </MotionReveal>
-            ))}
-          </div>
-        </div>
-
-        <MotionReveal preset="fadeIn" delay={0.6}>
-          <div className="mt-16 text-center">
-            <div className="bg-linear-to-r from-primary/10 to-blue-50 rounded-2xl p-6 lg:p-8 border border-primary/20">
-              <h3 className="mb-4 text-primary">Still Have Questions?</h3>
-              <p className="text-lg text-gray-700 mb-6 max-w-2xl mx-auto">
-                Can't find the answer you're looking for? Our friendly customer service team is here to help 
-                with any additional questions or concerns you may have.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-primary text-white px-8 py-4 rounded-xl hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium">
+                
+                <button className="w-full bg-primary text-white px-8 py-4 rounded-2xl hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold hover:scale-105">
                   Contact Support
                 </button>
-                <button className="border-2 border-primary text-primary px-8 py-4 rounded-xl hover:bg-primary hover:text-white transition-all duration-300 font-medium">
-                  Live Chat
-                </button>
               </div>
-            </div>
+            </MotionReveal>
           </div>
-        </MotionReveal>
+          
+          {/* Right FAQ List - 8 columns */}
+          <div className="lg:col-span-8">
+            <MotionReveal preset="slideLeft">
+              <div className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <div key={index} className="bg-white hover:bg-gray-50/50 border border-gray-200 hover:border-primary/30 rounded-2xl transition-all duration-300 overflow-hidden group shadow-sm hover:shadow-md">
+                    <button
+                      onClick={() => toggleFAQ(index)}
+                      className="w-full px-6 py-5 flex items-center justify-between text-left transition-all duration-300"
+                    >
+                      <h5 className="flex-1 pr-4 text-gray-900 group-hover:text-primary transition-colors font-semibold">
+                        {faq.question}
+                      </h5>
+                      <div className={`shrink-0 p-2 rounded-xl transition-all duration-300 ${
+                        activeIndex === index 
+                          ? 'bg-primary text-white rotate-180' 
+                          : 'bg-gray-100 text-gray-600 group-hover:bg-primary/10 group-hover:text-primary'
+                      }`}>
+                        {activeIndex === index ? (
+                          <ChevronUp className="w-5 h-5" />
+                        ) : (
+                          <ChevronDown className="w-5 h-5" />
+                        )}
+                      </div>
+                    </button>
+                    
+                    <div className={`transition-all duration-500 ease-in-out ${
+                      activeIndex === index 
+                        ? 'max-h-96 opacity-100' 
+                        : 'max-h-0 opacity-0'
+                    } overflow-hidden`}>
+                      <div className="px-6 pb-5 border-t border-gray-100">
+                        <p className="text-gray-600 leading-relaxed pt-5">
+                          {faq.answer}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </MotionReveal>
+          </div>
+        </div>
       </div>
     </section>
   );

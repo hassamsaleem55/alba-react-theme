@@ -54,26 +54,65 @@ export default function Testimonials() {
   ];
 
   return (
-    <section className="py-16 lg:py-20 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 lg:py-20 bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden">
+      {/* Premium Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-primary/30 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-48 h-48 bg-blue-500/20 rounded-full blur-2xl"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <MotionReveal preset="fadeIn">
-          <div className="text-center mb-12 lg:mb-16">
-            <h2 className="mb-4">What Our Customers Say</h2>
-            <p className="text-lg sm:text-xl max-w-3xl mx-auto">
-              Real stories from real customers who found their perfect vehicle with Motors Hub
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Quote className="w-4 h-4" />
+              Customer Stories
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+              Trusted by <span className="text-primary-light">Thousands</span>
+            </h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+              Real experiences from customers who found their perfect vehicle with Motors Hub
             </p>
           </div>
         </MotionReveal>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {testimonials.map((testimonial, index) => (
-            <MotionReveal key={testimonial.name} preset="slideUp" delay={index * 0.1}>
-              <div className="group bg-white rounded-2xl p-6 lg:p-8 shadow-sm hover:shadow-lg border-2 border-transparent hover:border-primary/20 transition-all duration-300 hover:-translate-y-2 h-full flex flex-col">
-                {/* Quote Icon */}
-                <div className="mb-4">
-                  <Quote className="w-8 h-8 text-primary/30 group-hover:text-primary/60 transition-colors" />
+        
+        {/* Featured Testimonial */}
+        <MotionReveal preset="slideUp">
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 lg:p-12 border border-white/20">
+              <div className="flex items-center gap-2 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="w-6 h-6 fill-yellow-400 text-yellow-400" />
+                ))}
+              </div>
+              <blockquote className="text-2xl lg:text-3xl font-light text-white leading-relaxed mb-8">
+                "{testimonials[0].text}"
+              </blockquote>
+              <div className="flex items-center gap-4">
+                <img
+                  src={testimonials[0].avatar}
+                  alt={testimonials[0].name}
+                  className="w-16 h-16 rounded-full object-cover ring-2 ring-white/30"
+                />
+                <div>
+                  <h4 className="text-xl font-semibold text-white">{testimonials[0].name}</h4>
+                  <p className="text-gray-300">{testimonials[0].location}</p>
+                  <div className="inline-block bg-primary/20 text-primary-light px-3 py-1 rounded-full text-sm font-medium mt-2">
+                    {testimonials[0].car}
+                  </div>
                 </div>
-
+              </div>
+            </div>
+          </div>
+        </MotionReveal>
+        
+        {/* Other Testimonials Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          {testimonials.slice(1, 6).map((testimonial, index) => (
+            <MotionReveal key={testimonial.name} preset="slideUp" delay={index * 0.1}>
+              <div className="group bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-white/40 transition-all duration-300 hover:-translate-y-1 h-full flex flex-col">
                 {/* Rating */}
                 <div className="flex items-center gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -82,24 +121,24 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-gray-700 leading-relaxed mb-6 flex-1 group-hover:text-gray-900 transition-colors">
-                  "{testimonial.text}"
+                <p className="text-gray-300 leading-relaxed mb-6 flex-1 group-hover:text-white transition-colors text-sm">
+                  "{testimonial.text.substring(0, 150)}..."
                 </p>
 
                 {/* Customer Info */}
-                <div className="border-t border-gray-100 pt-6">
-                  <div className="flex items-center gap-4">
+                <div className="border-t border-white/20 pt-4">
+                  <div className="flex items-center gap-3">
                     <img
                       src={testimonial.avatar}
                       alt={testimonial.name}
-                      className="w-12 h-12 rounded-full object-cover ring-2 ring-gray-100 group-hover:ring-primary/30 transition-all"
+                      className="w-10 h-10 rounded-full object-cover ring-2 ring-white/20 group-hover:ring-white/40 transition-all"
                     />
                     <div className="flex-1">
-                      <h6 className="group-hover:text-primary transition-colors">{testimonial.name}</h6>
-                      <p className="text-sm text-gray-500">{testimonial.location}</p>
+                      <h6 className="text-white font-medium text-sm group-hover:text-primary-light transition-colors">{testimonial.name}</h6>
+                      <p className="text-xs text-gray-400">{testimonial.location}</p>
                     </div>
                   </div>
-                  <div className="mt-3 inline-block bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-medium group-hover:bg-primary group-hover:text-white transition-all duration-300">
+                  <div className="mt-2 inline-block bg-white/10 text-gray-300 px-2 py-1 rounded-lg text-xs font-medium">
                     {testimonial.car}
                   </div>
                 </div>
@@ -108,34 +147,23 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <MotionReveal preset="fadeIn" delay={0.8}>
-          <div className="mt-16 text-center">
-            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-primary/10 max-w-4xl mx-auto">
-              <h3 className="mb-4 text-primary">Join Our Happy Customers</h3>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Ready to become our next success story? Experience the Motors Hub difference and discover 
-                why thousands of customers trust us with their automotive needs.
-              </p>
-              
-              {/* Trust Indicators */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">4.9/5</div>
-                  <p className="text-sm text-gray-600">Average Rating</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">10,000+</div>
-                  <p className="text-sm text-gray-600">Happy Customers</p>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">98%</div>
-                  <p className="text-sm text-gray-600">Would Recommend</p>
-                </div>
+        
+        {/* Trust Stats */}
+        <MotionReveal preset="fadeIn" delay={0.6}>
+          <div className="text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">4.9/5</div>
+                <p className="text-gray-300 font-medium">Average Rating</p>
               </div>
-
-              <button className="bg-primary text-white px-8 py-4 rounded-xl hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-xl font-medium">
-                Start Your Journey Today
-              </button>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">10,000+</div>
+                <p className="text-gray-300 font-medium">Happy Customers</p>
+              </div>
+              <div className="text-center">
+                <div className="text-4xl font-bold text-white mb-2">98%</div>
+                <p className="text-gray-300 font-medium">Would Recommend</p>
+              </div>
             </div>
           </div>
         </MotionReveal>
