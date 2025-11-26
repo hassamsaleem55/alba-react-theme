@@ -155,7 +155,7 @@ export default function Footer() {
         <div className="container mx-auto px-4 sm:px-6 py-6">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-300 text-sm">
-              <p>&copy; {currentYear} Motors Hub. All rights reserved.</p>
+              {/* <p>&copy; {currentYear} Motors Hub. All rights reserved.</p> */}
               <div className="flex gap-4">
                 {footerLinks.legal.map((link) => (
                   <a
@@ -193,10 +193,11 @@ export default function Footer() {
       {/* Made with Love */}
       <div className="bg-gray-950 border-t border-gray-800">
         <div className="container mx-auto px-4 sm:px-6 py-3">
-          <div className="flex items-center justify-center gap-2 text-gray-400 text-sm">
-            <span>Made with</span>
+          <div className="flex items-center justify-center gap-2 text-gray-400 text-xs md:text-sm">
+            {/* <span>Made with</span>
             <Heart className="w-4 h-4 text-red-500 fill-current" />
-            <span>by Motors Hub Team</span>
+            <span>by Motors Hub Team</span> */}
+            <span>&copy; {currentYear} Motors Hub. All rights reserved.</span>
           </div>
         </div>
       </div>

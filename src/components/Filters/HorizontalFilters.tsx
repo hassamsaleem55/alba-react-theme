@@ -70,7 +70,7 @@ export default function HorizontalFilters() {
   };
 
   return (
-    <div className="bg-white backdrop-blur-xl max-w-7xl shadow-2xl border border-white/40 rounded-3xl overflow-visible ring-2 ring-primary/30 z-50">
+    <div className="bg-white backdrop-blur-xl max-w-7xl shadow-2xl border border-white/40 rounded-3xl overflow-visible ring-2 ring-primary/30 z-30">
       {/* Filter Buttons */}
       <div className="flex divide-x divide-gray-100/50 rounded-3xl overflow-hidden">
         {filters.map((filter) => (

@@ -24,24 +24,31 @@ export default function Hero() {
                 Find Your Perfect Vehicle
               </h1>
               <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-lg leading-relaxed">
-                Discover premium quality vehicles from trusted dealers. 
-                Your dream car awaits with competitive pricing and exceptional service.
+                Discover premium quality vehicles from trusted dealers. Your
+                dream car awaits with competitive pricing and exceptional
+                service.
               </p>
             </div>
-            
+
             {/* Trust Indicators */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 md:gap-6 mt-6 sm:mt-8">
               <div className="flex items-center gap-2 bg-white/15 backdrop-blur-md px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border border-white/30 shadow-lg">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse shrink-0"></div>
-                <span className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap">10,000+ Customers</span>
+                <span className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap">
+                  10,000+ Customers
+                </span>
               </div>
               <div className="flex items-center gap-2 bg-white/15 backdrop-blur-md px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border border-white/30 shadow-lg">
                 <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse shrink-0"></div>
-                <span className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap">15+ Years Experience</span>
+                <span className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap">
+                  15+ Years Experience
+                </span>
               </div>
               <div className="flex items-center gap-2 bg-white/15 backdrop-blur-md px-3 sm:px-4 py-2 sm:py-2.5 rounded-full border border-white/30 shadow-lg">
                 <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse shrink-0"></div>
-                <span className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap">UK Delivery</span>
+                <span className="text-white text-xs sm:text-sm font-semibold whitespace-nowrap">
+                  UK Delivery
+                </span>
               </div>
             </div>
           </div>
@@ -62,12 +69,10 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      
+
       {/* Mobile Filters */}
-      <div className="lg:hidden relative -mt-6 sm:-mt-8 z-30 bg-gray-50/80 backdrop-blur-sm py-4">
-        <div className="mx-3 sm:mx-4 md:mx-6">
-          <VerticalFilters />
-        </div>
+      <div className="lg:hidden mx-3 sm:mx-4 md:mx-6 py-4">
+        <VerticalFilters />
       </div>
     </>
   );
