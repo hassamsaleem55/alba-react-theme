@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "./app-layouts/Header";
-import Footer from "./components/Footer";
+import Footer from "./app-layouts/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 import WhatsAppButton from "./components/WhatsAppButton";
 

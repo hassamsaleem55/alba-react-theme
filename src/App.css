@@ -133,7 +133,7 @@
   }
 }
 
-@layer utilities {
+/* @layer utilities {
   @keyframes slideInFromRight {
     from {
       opacity: 0;
@@ -144,4 +144,4 @@
       transform: translateX(0);
     }
   }
-}
+} */
